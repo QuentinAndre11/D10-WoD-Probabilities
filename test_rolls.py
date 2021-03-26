@@ -40,16 +40,17 @@ def test_countSuccess() :
 
 def test_rollsStats() :
     """Check that `rollsStats()` works as expected with a margin of 0.2"""
-    testWithMargin(rollsStats(1,6,hero=False), [0.4, 0.5, 0.4, 0.1])
-    testWithMargin(rollsStats(1,8,hero=False), [0.2, 0.2, 0.7, 0.1])
-    testWithMargin(rollsStats(1,6,hero=True), [0.5, 0.5, 0.4, 0.1])
-    testWithMargin(rollsStats(2,6,hero=False), [0.84, 0.64, 0.28, 0.08]) #verified by enumerating
-    testWithMargin(rollsStats(2,6,hero=True), [0.97, 0.64, 0.28, 0.08]) #verified by enumerating
-    testWithMargin(rollsStats(2,8,hero=False), [0.51, 0.43, 0.45, 0.12]) #verified by enumerating
-    testWithMargin(rollsStats(2,8,hero=True), [0.62, 0.43, 0.45, 0.12]) #verified by enumerating
 
-def testWithMargin(L1,L2) :
-    for i in range(len(L1)) :
-        assert abs(L1[i]-L2[i]) <= 0.2
+    def withMargin(L1,L2) :
+        for i in range(len(L1)) :
+            assert abs(L1[i]-L2[i]) <= 0.2
 
-# array and pretty array are only visuals
+    withMargin(rollsStats(1,6,hero=False), [0.4, 0.5, 0.4, 0.1])
+    withMargin(rollsStats(1,8,hero=False), [0.2, 0.2, 0.7, 0.1])
+    withMargin(rollsStats(1,6,hero=True), [0.5, 0.5, 0.4, 0.1])
+    withMargin(rollsStats(2,6,hero=False), [0.84, 0.64, 0.28, 0.08]) #verified by enumerating
+    withMargin(rollsStats(2,6,hero=True), [0.97, 0.64, 0.28, 0.08]) #verified by enumerating
+    withMargin(rollsStats(2,8,hero=False), [0.51, 0.43, 0.45, 0.12]) #verified by enumerating
+    withMargin(rollsStats(2,8,hero=True), [0.62, 0.43, 0.45, 0.12]) #verified by enumerating
+
+# array and prettyArray are only visuals
