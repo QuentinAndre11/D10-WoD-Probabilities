@@ -1,4 +1,4 @@
-import rolls
+from rolls import *
 
 # I can't imagine a unit test for roll (because of alea)
 
