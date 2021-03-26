@@ -184,13 +184,13 @@ def array(hero=False, maxDices=20, value="Average number of success") :
     """
 
     ind = 0
-    if (value == "average number of success" or "0") :
+    if (value == "average number of success" or value == "0") :
         ind = 0
-    elif (value == "success rate" or "1") :
+    elif (value == "success rate" or value == "1") :
         ind = 1
-    elif (value == "failure rate" or "2") :
+    elif (value == "failure rate" or value == "2") :
         ind = 2
-    elif (value == "critical failure rate" or "3") :
+    elif (value == "critical failure rate" or value == "3") :
         ind = 3
     else :
         raise ValueError("Try with average number of success, success rate, failure rate, critical failure rate, or 0, 1, 2, 3")
