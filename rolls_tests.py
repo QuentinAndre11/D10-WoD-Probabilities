@@ -1,4 +1,4 @@
-from rolls import *
+import rolls
 
 # I can't imagine a unit test for roll (because of alea)
 
@@ -27,7 +27,7 @@ def test_countSuccess() :
     L2=[10,10,8,7,6,5,4,3,2]
     L3=[9,9,8,7,6,5,4,3,2]
     L4=[9,8,7,6,5,4,3,2,1]
-    L4=[9,8,7,6,5,4,3,1,1]
+    L5=[9,8,7,6,5,4,3,1,1]
     assert countSuccess(L1,6,False) == 5
     assert countSuccess(L1,8,False) == 3
     assert countSuccess(L1,6,True) == 6
@@ -36,16 +36,20 @@ def test_countSuccess() :
     assert countSuccess(L3,6,False) == 5
     assert countSuccess(L3,6,True) == 5
     assert countSuccess(L4,6,False) == 3
-    assert countSuccess(L4,6,True) == 2
+    assert countSuccess(L5,6,True) == 2
 
 def test_rollsStats() :
-    """Check that `rollsStats()` works as expected"""
-    assert rollsStats(1,6,hero=False) == [0.4, 0.5, 0.4, 0.1]
-    assert rollsStats(1,8,hero=False) == [0.2, 0.7, 0.2, 0.1]
-    assert rollsStats(1,6,hero=True) == [0.5, 0.5, 0.4, 0.1]
-    assert rollsStats(2,6,hero=False) == [0.84, 0.08, 0.28, 0.64] #verified by enumerating
-    assert rollsStats(2,6,hero=True) == [0.97, 0.08, 0.28, 0.64] #verified by enumerating
-    assert rollsStats(2,8,hero=False) == [0.51, 0.12, 0.45, 0.43] #verified by enumerating
-    assert rollsStats(2,8,hero=True) == [0.62, 0.12, 0.45, 0.43] #verified by enumerating
+    """Check that `rollsStats()` works as expected with a margin of 0.2"""
+    testWithMargin(rollsStats(1,6,hero=False), [0.4, 0.5, 0.4, 0.1])
+    testWithMargin(rollsStats(1,8,hero=False), [0.2, 0.2, 0.7, 0.1])
+    testWithMargin(rollsStats(1,6,hero=True), [0.5, 0.5, 0.4, 0.1])
+    testWithMargin(rollsStats(2,6,hero=False), [0.84, 0.64, 0.28, 0.08]) #verified by enumerating
+    testWithMargin(rollsStats(2,6,hero=True), [0.97, 0.64, 0.28, 0.08]) #verified by enumerating
+    testWithMargin(rollsStats(2,8,hero=False), [0.51, 0.43, 0.45, 0.12]) #verified by enumerating
+    testWithMargin(rollsStats(2,8,hero=True), [0.62, 0.43, 0.45, 0.12]) #verified by enumerating
+
+def testWithMargin(L1,L2) :
+    for i in range(len(L1)) :
+        assert abs(L1[i]-L2[i]) <= 0.2
 
 # array and pretty array are only visuals
