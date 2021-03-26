@@ -17,9 +17,9 @@ Brief reminder of the WoD system :
 
 In this code, there are two useful functions :
 
-    - rollsStats(dices,diff,hero) which gives the useful statistics for a given number of dices and difficulty (and the optional hero attribute)
+   - rollsStats(dices,diff,hero) which gives the useful statistics for a given number of dices and difficulty (and the optional hero attribute)
     
-    - prettyArray(hero,maxDices,value) which gives an array with difficulty as columns and number of dices as rows. You can choose what statistic is shown with the input "value", and you can input whether you want an array for hero attribute, and the maximum number of rows (number of dices). 
+   - prettyArray(hero,maxDices,value) which gives an array with difficulty as columns and number of dices as rows. You can choose what statistic is shown with the input "value", and you can input whether you want an array for hero attribute, and the maximum number of rows (number of dices). 
 
 Here are the tables for 20 dices :
 
