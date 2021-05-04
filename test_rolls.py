@@ -36,7 +36,7 @@ def test_countSuccess() :
     assert countSuccess(L3,6,False) == 5
     assert countSuccess(L3,6,True) == 5
     assert countSuccess(L4,6,False) == 3
-    assert countSuccess(L5,6,True) == 2
+    assert countSuccess(L5,6,True) == 3
 
 def test_rollsStats() :
     """Check that `rollsStats()` works as expected with a margin of 0.2"""
